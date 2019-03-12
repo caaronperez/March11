@@ -27,3 +27,13 @@ not exceed four million, find the sum of the even-valued terms.
 * <a href="https://www.raywenderlich.com/6366-swift-tutorial-part-3-flow-control">Ray Wenderlich Control Flow</a>
 
 ## We'll have some time in class to share our code
+
+## Grading Rubric:
+* 10 points - Problem 1
+* 15 points - Problem 2
+* 25 points - Tutorial 1
+* 25 points - Tutorial 2
+
+__________
+
+* 75 points total
