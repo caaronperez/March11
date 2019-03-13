@@ -105,6 +105,10 @@ print(fizzBuzz(below:1000))
 
 var array = [1, 2, 5, 3, 6, 2, 1, 2]
 
+var dict = [String: Int]()
+dict["something", default: 0] += 1
+
+
 
 
 //let orderedArray = array.sor
