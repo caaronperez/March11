@@ -2,9 +2,9 @@
 
 ## Tutorials 
 
-* <a href"https://hackernoon.com/swift-optionals-explained-simply-e109a4297298">Optionals</a>
-* <a href"https://blog.bobthedeveloper.io/no-fear-closure-in-swift-3-with-bob-72a10577c564">Closures Part 1</a>
-* <a href"https://blog.bobthedeveloper.io/no-fear-closure-in-swift-3-with-bob-part-2-1d79b8c4021d">Closures Part 2</a>
+* <a href="https://hackernoon.com/swift-optionals-explained-simply-e109a4297298">Optionals</a>
+* <a href="https://blog.bobthedeveloper.io/no-fear-closure-in-swift-3-with-bob-72a10577c564">Closures Part 1</a>
+* <a href="https://blog.bobthedeveloper.io/no-fear-closure-in-swift-3-with-bob-part-2-1d79b8c4021d">Closures Part 2</a>
 
 ## Filter
 * Implement your own version of ```filter``` using the function definition below
