@@ -1,5 +1,4 @@
-# Day 2 Homework - 2019.03.12
-
+# Day 2 Homework - ValueVsRef & ControlFlow
 ## Solve the problem from class, if you didn't already
 
 ```
