@@ -4,7 +4,6 @@
 
 * <a href="https://www.raywenderlich.com/443-auto-layout-tutorial-in-ios-11-getting-started">AutoLayout</a>
 * <a href="https://codewithchris.com/xcode-tutorial/">Xc😭de IDE Basics</a>
-* <a href="https://blog.bobthedeveloper.io/no-fear-closure-in-swift-3-with-bob-part-2-1d79b8c4021d">Closures Part 2</a>
 
 ## UI Elements
 * Add one or more of each element to a View Controller in a Storyboard
