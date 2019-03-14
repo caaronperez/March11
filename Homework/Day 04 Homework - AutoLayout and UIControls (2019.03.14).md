@@ -1,4 +1,4 @@
-# Day 4 Homework - AutoLayout and UIControls
+# Day 04 Homework - AutoLayout and UIControls
 
 ## Tutorials 
 
@@ -29,6 +29,9 @@
 	* "Swift how to use a UILabel"
 	* "swift how to add ibaction to button"
 	* "How to set text on UILabel programatically"
+	* "How to disable UIButton"
+	* "How to change UISegmentedControl programatically"
+	* etc.
 * Read the documentation 
 	* Google "<ElementName> documentation"
 	* Option Click on the class name to bring up documentation
