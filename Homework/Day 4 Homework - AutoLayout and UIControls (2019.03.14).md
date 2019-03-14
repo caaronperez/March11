@@ -28,6 +28,10 @@
 * Google it
 	* "Swift how to use a UILabel"
 	* "swift how to add ibaction to button"
+	* "How to set text on UILabel programatically"
+* Read the documentation 
+	* Google "<ElementName> documentation"
+	* Option Click on the class name to bring up documentation
 
 ## Grading rubric
 
