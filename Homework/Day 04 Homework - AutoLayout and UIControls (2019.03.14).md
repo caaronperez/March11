@@ -33,7 +33,7 @@
 	* "How to change UISegmentedControl programatically"
 	* etc.
 * Read the documentation 
-	* Google "<ElementName> documentation"
+	* Google ```[ElementName] documentation```
 	* Option Click on the class name to bring up documentation
 
 ## Grading rubric
