@@ -7,7 +7,7 @@
 
 ## Get More Familiar With Git
 
-* Find an article or tutorial that fits your learning style
+* Find an article, tutorial, or documentation that fits your learning style
 * Write down general steps and terminal commands to: 
 	* Make a commit
 	* Revert a commit
@@ -17,13 +17,13 @@
 
 ## Get More Familiar with HIG
 
-* Find an article or tutorial that fits your learning style
+* Find an article, tutorial, or documentation that fits your learning style
 * Write out some general principals
 	* What are the major guidelines?
 
 ## Get More Familiar with App Store Guidelines
 
-* Find an article or tutorial that fits your learning style
+* Find an article, tutorial, or documentation that fits your learning style
 * Write out some general guidelines
 	* What might cause an app to fail?
 	* To pass?
