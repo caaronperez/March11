@@ -1,4 +1,4 @@
-# MCS Syllabus
+# MCS Syllabus - March 2019 Group
 
 # Table of Contents
 
@@ -16,6 +16,40 @@
 	* [Day 7 - Catch Up Day and Collection Views](#day-7)
 	* [Day 8 - Programmatic Views, Codable, and JSONSerialization](#day-8)
 	* [Day 9 - Third Party Libraries, CocoaPods, and Network Calls](#day-9)
+	* [Day 10](#day-10)
+
+* [Week 3](#week-3)
+
+	* [Day 11](#day-11)
+	* [Day 12](#day-12)
+	* [Day 13](#day-13)
+	* [Day 14](#day-14)
+	* [Day 15](#day-15)
+
+* [Week 4](#week-4)
+
+	* [Day 16](#day-16)
+	* [Day 17](#day-17)
+	* [Day 18](#day-18)
+	* [Day 19](#day-19)
+	* [Day 20](#day-20)
+
+* [Week 5](#week-5)
+
+	* [Day 21](#day-21)
+	* [Day 22](#day-22)
+	* [Day 23](#day-23)
+	* [Day 24](#day-24)
+	* [Day 25](#day-25)
+
+* [Week 6](#week-6)
+
+	* [Day 26](#day-26)
+	* [Day 27](#day-27)
+	* [Day 28](#day-28)
+	* [Day 29](#day-29)
+	* [Day 30](#day-30)
+
 
 # <a name="week-1"></a>Week 1
 
@@ -160,6 +194,9 @@
 
 ### App lifecycle
 
+* The actual lifecycle of an app from not running to running to closed in iOS
+* The "App Lifecycle" in the sense of the lifecycle of createing an app from start to finish
+
 ### Continue UI Components
 
 * UITableView
@@ -209,7 +246,7 @@
 
 ## <a name="day-7"></a>Day 7: Catch Up Day and Collection Views
 
-* Go over topics that they are struggling with
+* Go over topics that we are struggling with
 	* Closures
 	* Size Classes in AutoLayout
 	* ViewController Life Cycle Functions
@@ -220,50 +257,9 @@
 ### Codable
 ### JSONSerialization
 
+
+
 ## <a name="day-9"></a>Day 9: Third Party Libraries, CocoaPods, and Network Calls
-
-<!---
-
-**********************
-Day 8: Webservices and Basic Async Work
-**********************
-	-download tasks from some API
-	-present in table, collection
-	-pitfalls with downloading on reusable cells
-	-cache
-	-pitfalls with async
-	-what is a background thread?
-	-blocking UI vs async background downloading
-	-Singleton
-
--in-class, simple downloading to present in table and/or collection
-	-download also includes images, how to handle those
-	-show pitfalls
-
-End of class Exercise 8: 
-	-download some json/images/json+images from some endpoint
-	-present
-
-
-**********************
-Day 9: Basic Persistence
-**********************
-	-FileManager
-	-NSKeyedArchiver
-	-UserDefaults
-	-compare and contrast
-	-create a table to save data that a user can add info to
-		-maybe do filters
-	-app lifecycle and persisting
-
-End of class Exercise 9: 
-	-make a simple app to save some information
-	-or overhaul one of the previous apps
-		-weekend assignment
-		-last day's?
-	-load the data on startup
-
--->
 
 ### Third Party Libraries
 
