@@ -16,40 +16,6 @@
 	* [Day 7 - Catch Up Day and Collection Views](#day-7)
 	* [Day 8 - Programmatic Views, Codable, and JSONSerialization](#day-8)
 	* [Day 9 - Third Party Libraries, CocoaPods, and Network Calls](#day-9)
-	* [Day 10](#day-10)
-
-* [Week 3](#week-3)
-
-	* [Day 11](#day-11)
-	* [Day 12](#day-12)
-	* [Day 13](#day-13)
-	* [Day 14](#day-14)
-	* [Day 15](#day-15)
-
-* [Week 4](#week-4)
-
-	* [Day 16](#day-16)
-	* [Day 17](#day-17)
-	* [Day 18](#day-18)
-	* [Day 19](#day-19)
-	* [Day 20](#day-20)
-
-* [Week 5](#week-5)
-
-	* [Day 21](#day-21)
-	* [Day 22](#day-22)
-	* [Day 23](#day-23)
-	* [Day 24](#day-24)
-	* [Day 25](#day-25)
-
-* [Week 6](#week-6)
-
-	* [Day 26](#day-26)
-	* [Day 27](#day-27)
-	* [Day 28](#day-28)
-	* [Day 29](#day-29)
-	* [Day 30](#day-30)
-
 
 # <a name="week-1"></a>Week 1
 
