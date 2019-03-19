@@ -132,6 +132,8 @@
 
 ### Extensions
 
+* Extend the functionality of classes. Even classes where we don't have access to the implementation code.
+
 ### Protocols
 
 ### UINavigationController
