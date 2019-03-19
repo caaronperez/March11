@@ -13,7 +13,7 @@
 * [Week 2](#week-2)
 
 	* [Day 6 - Git, HIG, and the App Store](#day-6)
-	* [Day 7 - Catch Up Day and Collection Views](#day-7)
+	* [Day 7 - Catch Up Day](#day-7)
 	* [Day 8 - Programmatic Views, Codable, and JSONSerialization](#day-8)
 	* [Day 9 - Third Party Libraries, CocoaPods, and Network Calls](#day-9)
 
@@ -167,11 +167,14 @@
 
 * UITableView
 	* UITableViewDelegate
+		* <a href="https://developer.apple.com/documentation/uikit/uitableviewdelegate">Apple Docs</a>
+		* tableView(_:willDisplay:forRowAt:)
+		* tableView(_:didSelectRowAt:)
 	* UITableViewDataSource
-	* numberOfSections
-	* numberOfRowsInSection
-	* cellForRowAt
-	* willDisplayCellAt
+		* <a href="https://developer.apple.com/documentation/uikit/uitableviewdatasource">Apple Docs</a>
+		* numberOfSections(in:)
+		* tableView(_:numberOfRowsInSection:)
+		* tableView(_:cellForRowAt:)
 	* Cells
 		* textLabel
 		* detailTextLabel
@@ -242,4 +245,3 @@
 
 * URLSession
 * NetworkController Snippit
-
