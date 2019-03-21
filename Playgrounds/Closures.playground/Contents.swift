@@ -14,3 +14,5 @@ var str = "Hello, playground"
 func closure(someClosure: @escaping (Int) -> Void) {
     someClosure(5)
 }
+
+
