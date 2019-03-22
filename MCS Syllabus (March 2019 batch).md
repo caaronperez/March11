@@ -16,6 +16,12 @@
 	* [Day 7 - Catch Up Day](#day-7)
 	* [Day 8 - Programmatic Views, Codable, and JSONSerialization](#day-8)
 	* [Day 9 - Third Party Libraries, CocoaPods, and Network Calls](#day-9)
+	* [Day 10 - Test: JSON, TableView, DetailView, Constraints](#day-10)
+
+* [Week 3](#week-3)
+
+	* [Day 11 - Network Calls, CollectionViews](#day-11)
+	* [Day 12 - Persistence](#day-12)
 
 # <a name="week-1"></a>Week 1
 
@@ -136,6 +142,8 @@
 
 ### Protocols
 
+* Associated type
+
 ### UINavigationController
 
 * Navigation Stack
@@ -215,7 +223,7 @@
 * Android?
 
 
-## <a name="day-7"></a>Day 7: Catch Up Day and Collection Views
+## <a name="day-7"></a>Day 7: Catch Up Day
 
 * Go over topics that we are struggling with
 	* Closures
@@ -230,7 +238,7 @@
 
 
 
-## <a name="day-9"></a>Day 9: Third Party Libraries, CocoaPods, and Network Calls
+## <a name="day-9"></a>Day 9: Third Party Libraries and CocoaPods
 
 ### Third Party Libraries
 
@@ -242,8 +250,167 @@
 
 * Alamofire
 * SwiftyJson
+* FBSDK
+* SnapKit
+* SwiftLint
+
+## <a name="day-10"></a>Day 10: Test - JSON, TableView, DetailView, Constraints
+
+### Things to study:
+* Parsing JSON (codable and JSONSerialization)
+* Loading data into a tableview
+* Transitions between ViewControllers, including passing data between them
+
+# <a name="week-3"></a>Week 3
+
+## <a name="day-11"></a>Day 11: Network Calls, CollectionViews
 
 ### Network Calls
 
-* URLSession
-* NetworkController Snippit
+* <a href="https://developer.apple.com/documentation/foundation/urlsession">```URLSession```</a>
+	* This is apples 1st party class that handles network calls. Many third party libraries for networking will utilize this class to preform their functionality.
+	* What are the main methods/properties I should be aware of?
+		* <a href="https://developer.apple.com/documentation/foundation/urlsession/1409000-shared">```shared```</a>
+			* This is a pre-configured singleton instance that is ready for us to use. 😁
+		* <a href="https://developer.apple.com/documentation/foundation/urlsession/1410330-datatask">```dataTask(with:completionHandler:)```</a>
+			* a ```dataTask``` starts in a 'suspended' state. Therefor, you must call <a href="https://developer.apple.com/documentation/foundation/urlsessiontask/1411121-resume">```.resume()```</a> on the dataTask, or it will never start the network call
+* What else should I know?
+	* iOS devices have multiple 'threads' that they execute programs on. The ```main``` thread is the one in charge of updating UI. 
+		* ALL UI MUST BE UPDATED ON THE MAIN THREAD
+		* If you update it on a background thread, the app will, at the very least, become unresponsive, and at worst, crash.
+	* So, how do I update the UI on the main thread?
+		* ```DispatchQueue.main.async { // execute code here }```
+			
+<details> 
+	<summary>NetworkController Snippit</summary>
+
+```
+
+class NetworkController {
+    
+    // MARK: Properties
+    
+    enum HTTPMethod: String {
+        case Get = "GET"
+        case Put = "PUT"
+        case Post = "POST"
+        case Patch = "PATCH"
+        case Delete = "DELETE"
+    }
+    
+    static func performRequest(for url: URL,
+                               httpMethod: HTTPMethod,
+                               urlParameters: [String : String]? = nil,
+                               body: Data? = nil,
+                               completion: ((Data?, Error?) -> Void)? = nil) {
+        
+        // Build our entire URL
+        
+        let requestURL = self.url(byAdding: urlParameters, to: url)
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = httpMethod.rawValue
+        request.httpBody = body
+        
+        // Create and "resume" (a.k.a. run) the task
+        
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
+            completion?(data, error)
+        }
+        
+        dataTask.resume()
+    }
+    
+    static func url(byAdding parameters: [String : String]?,
+                    to url: URL) -> URL {
+        
+        var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        components?.queryItems = parameters?.compactMap({ URLQueryItem(name: $0.0, value: $0.1) })
+        
+        guard let url = components?.url else {
+            fatalError("URL optional is nil")
+        }
+        return url
+    }
+}
+
+
+```
+
+</details>
+
+
+### UICollectionViews
+
+* What is a <a href="https://developer.apple.com/documentation/uikit/uicollectionview">```UICollectionView```</a>?
+	* Like a tableview, it is a subclass of a UIScrollView
+	* It displays a collection of things. Instead of just having rows, it also has columns
+	* It has it's own cell type, just like a TableView
+* What are the main methods I should be aware of?
+	* Protocol: <a href="https://developer.apple.com/documentation/uikit/uicollectionviewdatasource">```UICollectionViewDataSource```</a>
+		* <a href="https://developer.apple.com/documentation/uikit/uicollectionviewdatasource/1618058-collectionview">```collectionView(_:numberOfItemsInSection:)```</a>
+		* <a href="https://developer.apple.com/documentation/uikit/uicollectionviewdatasource/1618029-collectionview">```collectionView(_:cellForItemAt:)```</a> 
+	* Protocol: <a href="https://developer.apple.com/documentation/uikit/uicollectionviewdelegate">```UICollectionViewDelegate```</a>
+		* <a href="https://developer.apple.com/documentation/uikit/uicollectionviewdelegate/1618032-collectionview">```collectionView(_:didSelectItemAt:)```</a>
+		* <a href="https://developer.apple.com/documentation/uikit/uicollectionviewdelegate/1618087-collectionview">```collectionView(_:willDisplay:forItemAt:)```</a>
+* How do I create a custom <a href="https://developer.apple.com/documentation/uikit/uicollectionviewlayout">```UICollectionViewLayout```</a>?
+
+## <a name="day-12"></a>Day 12: Persistence
+
+### What persistance options are available for me in iOS?
+
+
+#### First Party Solutions
+
+* Core Data
+	* Useful for storing custom objects and large amounts of data
+* UserDefaults
+	* for storing things like settings for the app
+	* small amounts of simple data
+* Plist
+	* for storing small amounts of data
+* Keychain
+	* for storing sensitive information (passwords, security tokens, keys, credit cards, etc.)
+* FileManager
+	* Can handle more data, but its less secure
+* NSKeyedArchiver
+	* Works with UserDefaults to store custom objects as data 
+
+#### In-between Party Solutions
+
+* Custom SQLite Database
+	* SQLite is a third party database, but you get to implement it all yourself. In code. 😭 
+
+#### Third Party Solutions
+
+* Realm
+	* Simmilar to Core Data. For large amounts of data. 
+	* You'd get the SDK (pod), install it in your project, and then use the third party library
+	* This is the kind of code you'd need to write if you wanted to use a basic SQLite database
+
+### Core Data
+
+* Main components
+	* <a href="https://developer.apple.com/documentation/coredata/nsmanagedobject">```NSManagedObject```</a>
+		* "A base class that implements the behavior required of a Core Data model object." - Apple Docs
+		* This is a basic custom object you have created for your app and wish to store in Core Data
+		* The actual code for this class is generated automatically for you, but its hidden by default
+	* <a href="https://developer.apple.com/documentation/coredata/nsmanagedobjectcontext">```NSManagedObjectContext```</a>
+		* "An object space that you use to manipulate and track changes to managed objects." - Apple Docs
+		* Frequently referred to as a 'scratchpad' where you can work with your objects
+		* The objects will not persist unless you <b><i>save</b></i> this context
+	* <a href="https://developer.apple.com/documentation/coredata/nsmanagedobjectmodel">```NSManagedObjectModel```</a>
+		* This is what your data structure looks like
+		* can include one or more <a href="https://developer.apple.com/documentation/coredata/nsentitydescription">```NSEntityDescription```</a>s, which are basically one of your custom objects
+		* includes relationships between entitys
+	* <a href="https://developer.apple.com/documentation/coredata/nsfetchrequest">```NSFetchRequest```</a>
+		* "A description of search criteria used to retrieve data from a persistent store." - Apple Docs
+		* you use a fetch request to pull your items out of storage and load them into your context so that you can work with them
+	* <a href="https://developer.apple.com/documentation/coredata/nspersistentstorecoordinator">```NSPersistentStoreCoordinator```</a>
+		* "A coordinator that uses the model to help contexts and persistent stores communicate." - Apple Docs
+		* This is the class that goes between the persistant store and the context
+	* <a href="https://developer.apple.com/documentation/foundation/nspredicate">```NSPredicate```</a>
+		* "A definition of logical conditions used to constrain a search either for a fetch or for in-memory filtering." -Apple Docs 
+		* This is the logic part of your fetch request
+* CoreDataStack 
+	* This generally refers to a combination of the above tools, generally contained within some sort of helper, or service class, that preforms the necessary functionality to get stuff in and out of Core Data and to manipulate the objects
