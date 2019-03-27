@@ -13,7 +13,19 @@ extension UIImageView {
         URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
             DispatchQueue.main.async {
                 self?.image = data.flatMap(UIImage.init(data:))
+                self?.superview?.layoutSubviews()
             }
         }.resume()
+    }
+}
+
+extension UITableViewCell {
+    func loadImage(from url: URL) {
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
+            DispatchQueue.main.async {
+                self?.imageView?.image = data.flatMap(UIImage.init(data:))
+                self?.layoutIfNeeded()
+            }
+            }.resume()
     }
 }

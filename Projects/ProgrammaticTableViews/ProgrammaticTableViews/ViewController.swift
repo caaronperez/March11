@@ -32,7 +32,34 @@ class ViewController: UIViewController {
     
     func setUpTableViewConstraints() {
         view.addSubview(tableView)
-        view.addConstraints([NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0), NSLayoutConstraint(item: tableView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0), NSLayoutConstraint(item: tableView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0), NSLayoutConstraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)])
+        view.addConstraints([NSLayoutConstraint(item: tableView,
+                                                attribute: .top,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: .top,
+                                                multiplier: 1,
+                                                constant: 0),
+                             NSLayoutConstraint(item: tableView,
+                                                attribute: .leading,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: .leading,
+                                                multiplier: 1,
+                                                constant: 0),
+                             NSLayoutConstraint(item: tableView,
+                                                attribute: .trailing,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: .trailing,
+                                                multiplier: 1,
+                                                constant: 0),
+                             NSLayoutConstraint(item: tableView,
+                                                attribute: .bottom,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: .bottom,
+                                                multiplier: 1,
+                                                constant: 0)])
         tableView.translatesAutoresizingMaskIntoConstraints = false
     }
 }
