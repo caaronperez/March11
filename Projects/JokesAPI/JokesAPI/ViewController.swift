@@ -54,10 +54,13 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
             if let data = data, let joke = try? JSONDecoder().decode(Joke.self, from: data) {
-                    print(joke)
-                    self.jokes.append(joke)
+                print(joke)
+                self.jokes.append(joke)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
-        }.resume()
+            }.resume()
     }
     
     enum Category: String, RawRepresentable  {
@@ -93,7 +96,7 @@ extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
 /* Steps:
- 1. Access whta is in the search bar
+ 1. Access what is in the search bar
  2. filter the data you are displaying in the tableview based on that search text
  */
     }
