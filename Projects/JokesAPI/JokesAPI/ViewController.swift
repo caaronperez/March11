@@ -19,14 +19,32 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     var jokes: [Joke] = []
+    var jokesToShow = [Joke]()
+    var category = Category.anything
     
     // MARK: - IBActions
     
     @IBAction func getAnotherButtonClicked(_ sender: Any) {
-        getAJoke(category: .anything)
+        getAJoke(category: category)
     }
     
-    @IBAction func segmentedControlValueChanged(_ sender: Any) {
+    @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        guard let segment = Segment(rawValue: sender.selectedSegmentIndex) else { return }
+        switch segment {
+        case .misc:
+            category = .misc
+            jokesToShow = jokes.filter({ $0.category == .misc })
+        case .programming:
+            category = .programming
+            jokesToShow = jokes.filter({ $0.category == .programming })
+        case .dark:
+            category = .dark
+            jokesToShow = jokes.filter({ $0.category == .dark })
+        case .anything:
+            category = .anything
+            jokesToShow = jokes
+        }
+        tableView.reloadData()
     }
     
     // MARK: - Lifecycle Functions
@@ -36,12 +54,23 @@ class ViewController: UIViewController {
         
         setupViewController()
     }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        guard motion == .motionShake else { return }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let collectionViewController = storyboard.instantiateViewController(withIdentifier: "JokesCollectionViewController") as! JokesCollectionViewController
+        collectionViewController.jokes = jokes
+        present(collectionViewController, animated: true, completion: nil)
+    }
 
     // MARK: - Setup Functions
     
     func setupViewController() {
         searchBar.delegate = self
-        getAJoke(category: .anything)
+        getAJoke(category: category)
+        tableView.register(UINib(nibName: "JokeTableViewCell", bundle: nil), forCellReuseIdentifier: "qwerty")
+        //Setting initial selected segment to Any segment
+        categorySelector.selectedSegmentIndex = 3
     }
     
     // MARK: - Helper Functions
@@ -56,14 +85,15 @@ class ViewController: UIViewController {
             if let data = data, let joke = try? JSONDecoder().decode(Joke.self, from: data) {
                 print(joke)
                 self.jokes.append(joke)
+                self.jokesToShow.append(joke)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
-            }.resume()
+        }.resume()
     }
     
-    enum Category: String, RawRepresentable  {
+    enum Category: String, RawRepresentable, Codable {
         case anything = "Any"
         case programming = "Programming"
         case dark = "Dark"
@@ -71,10 +101,11 @@ class ViewController: UIViewController {
         
     }
     
-    func loadJSONFromFile() -> [String: Any] {
-        let fileURL = Bundle.main.url(forResource: "Week2", withExtension: "json")
-        let data = try! Data(contentsOf: fileURL!)
-        return ((try! JSONDecoder().decode(TVMReturn.self, from: data))._embeded.episodes
+    enum Segment: Int {
+        case misc
+        case programming
+        case dark
+        case anything
     }
 }
 
@@ -82,11 +113,23 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return jokesToShow.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "qwerty", for: indexPath) as! JokeTableViewCell
+        let joke = jokesToShow[indexPath.row]
+        if let singleJoke = joke.joke {
+            cell.jokeLabel.text = singleJoke
+            cell.deliveryLabel.text = nil
+        } else if let setup = joke.setup, let delivery = joke.delivery {
+            cell.jokeLabel.text = setup
+            cell.deliveryLabel.text = delivery
+        } else {
+            cell.jokeLabel.text = "404: No joke found"
+            cell.deliveryLabel.text = nil
+        }
+        return cell
     }
 }
 
@@ -101,9 +144,18 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
-/* Steps:
- 1. Access what is in the search bar
- 2. filter the data you are displaying in the tableview based on that search text
- */
+        guard !searchText.isEmpty else {
+            jokesToShow = jokes.filter({ $0.category == category })
+            tableView.reloadData()
+            return
+        }
+        let filteredJokes = jokes.filter { (joke) -> Bool in
+            return (joke.joke?.localizedCaseInsensitiveContains(searchText) == true
+                || joke.setup?.localizedCaseInsensitiveContains(searchText) == true
+                || joke.delivery?.localizedCaseInsensitiveContains(searchText) == true)
+                && joke.category == category
+        }
+        jokesToShow = filteredJokes
+        tableView.reloadData()
     }
 }

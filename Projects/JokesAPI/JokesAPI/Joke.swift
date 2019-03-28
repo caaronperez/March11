@@ -10,7 +10,7 @@ import Foundation
 
 struct Joke: Codable {
     let id: Int
-    let category: String
+    let category: ViewController.Category
     let type: String
     let joke: String?
     let setup: String?
