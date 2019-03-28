@@ -70,6 +70,12 @@ class ViewController: UIViewController {
         case misc = "Miscellaneous"
         
     }
+    
+    func loadJSONFromFile() -> [String: Any] {
+        let fileURL = Bundle.main.url(forResource: "Week2", withExtension: "json")
+        let data = try! Data(contentsOf: fileURL!)
+        return ((try! JSONDecoder().decode(TVMReturn.self, from: data))._embeded.episodes
+    }
 }
 
 // MARK: - UITableViewDataSource Methods

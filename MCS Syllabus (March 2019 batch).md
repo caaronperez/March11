@@ -20,8 +20,12 @@
 
 * [Week 3](#week-3)
 
-	* [Day 11 - Network Calls, CollectionViews](#day-11)
-	* [Day 12 - Persistence](#day-12)
+	* [Day 11 - Catchup / Deep Dive on Difficult Topics](#day-11)
+	* [Day 12 - Network Calls](#day-12)
+	* [Day 13 - Network Calls Continued, Singleton Pattern](#day-13)
+	* [Day 14 - Network Calls Continued Continued, CollectionViews](#day-14)
+	* [Day 15 - Persistance](#day-15)
+
 
 # <a name="week-1"></a>Week 1
 
@@ -263,7 +267,23 @@
 
 # <a name="week-3"></a>Week 3
 
-## <a name="day-11"></a>Day 11: Network Calls, CollectionViews
+## <a name="day-11"></a>Day 11: Catchup / Deep Dive on difficult topics
+
+* JSON parsing
+* CompactMap
+
+## <a name="day-12"></a>Day 12: Network Calls
+
+* CompactMap
+* Understanding the NetworkController Snippit
+* Building a quick app to connect to the Joke API
+
+## <a name="day-13"></a>Day 13: Network Calls Continued
+
+* Singleton design pattern
+* What is an instance?
+* What is the initializer for?
+* What is an object?
 
 ### Network Calls
 
@@ -338,7 +358,14 @@ class NetworkController {
 ```
 
 </details>
+	
+## <a name="day-14"></a>Day 14: Network Calls Continued Continued and Collection Views
 
+* Continue working with the network controller
+* Demonstrate how to use it to make network calls
+* hook up buttons to network calls
+* Parse response and turn into objects
+* save objects so you can display them
 
 ### UICollectionViews
 
@@ -355,7 +382,7 @@ class NetworkController {
 		* <a href="https://developer.apple.com/documentation/uikit/uicollectionviewdelegate/1618087-collectionview">```collectionView(_:willDisplay:forItemAt:)```</a>
 * How do I create a custom <a href="https://developer.apple.com/documentation/uikit/uicollectionviewlayout">```UICollectionViewLayout```</a>?
 
-## <a name="day-12"></a>Day 12: Persistence
+## <a name="day-15"></a>Day 15: Persistance
 
 ### What persistance options are available for me in iOS?
 
@@ -388,6 +415,29 @@ class NetworkController {
 	* You'd get the SDK (pod), install it in your project, and then use the third party library
 	* This is the kind of code you'd need to write if you wanted to use a basic SQLite database
 
+
+# <a name="week-4"></a>Week 4
+
+<!---
+***********************
+	Week 4:
+Objective-C Topics to cover:
+Objective-C
+Bridging Objective-C to Swift, Swift to Objective-C
+KVC/KVO
+NSNotificationCenter
+Dynamic/Synthesize
+Dynamic Dispatch
+
++
+Instruments
+Git
+GitFlow
+***********************
+-->
+
+## <a name="day-16"></a>Day 16: Core Data Deep Dive
+
 ### Core Data
 
 * Main components
@@ -414,3 +464,134 @@ class NetworkController {
 		* This is the logic part of your fetch request
 * CoreDataStack 
 	* This generally refers to a combination of the above tools, generally contained within some sort of helper, or service class, that preforms the necessary functionality to get stuff in and out of Core Data and to manipulate the objects
+
+### Core Data Tricky Topics
+
+* How to fetch
+* How to save
+* Codable and Core Data
+* What is a Core Data Fault?
+
+
+<!---
+***********************
+Day 16: Introduction to Objective-C
+***********************
+
+Present weekend assignments for first half.
+
+Introduction to Objective-C
+	-Variables, Constants, Optionals
+	-atomic, nonatomic, strong, weak
+	-header and implementation file
+	-import everything
+
+Data Types and Collection Types
+	-Classes
+	-Enum
+	-Arrays
+	-Dictionaries
+	-Sets
+	-Mutable and Nonmutable types 
+
+Additional Swift Capabilities
+	-Extensions/Categories
+	-Protocols
+	-Blocks
+
+UITableView, UICollectionView, etcetc
+	-with Objective-C instead
+
+NSJSONSerialization
+
+End of class Exercise 1: working with individual items, functions, etc
+
+Weekday Homework 1:
+	-basic Swift exercise, but it's Objective-C
+Weekday Homework 2:
+	-Assign an Objective-C assignment, with details that we will implement throughout the week
+
+-->
+
+## <a name="day-17"></a>Day 17
+
+<!---
+***********************
+Day 17: One-to-Many
+***********************
+
+-KVC
+-KVO
+-NSNotifications
+-Dynamic, Synthesize
+-Dynamic Dispatch
+-use Swift and Objective-C together
+
+
+-->
+
+## <a name="day-18"></a>Day 18
+
+<!---
+***********************
+Day 18: Git & Instruments
+***********************
+
+-git
+-github
+-making commits, etc
+-Instruments
+	-find memory leaks
+-gitflow to fix bugs
+
+
+-task: given some (problem) app, make a branch to analyze issues
+	-look at issues with Instruments
+
+
+-->
+
+## <a name="day-19"></a>Day 19
+
+<!---
+***********************
+Day 19: Testing
+***********************
+
+Unit Testing
+XCTests
+XCUITests
+Test-Driven Development
+-dependency injection
+-mocks
+
+
+-testing Objc and Swift code together?
+
+-task: continuing from yesterday, start setting up tests
+	-add a new feature, with a test
+
+
+-->
+
+## <a name="day-20"></a>Day 20
+
+<!---
+***********************
+Day 20: Testing Cont.
+***********************
+
+Crashlytics
+Cause Errors, Track Errors
+Get Crash Logs
+Create branch to resolve errors.
+
+Let class do this, merge at the end.
+
+-task: what are some common complaints? How do we solve these issues?
+
+-task: take some old assignment, add tests to it
+
+
+-->
+

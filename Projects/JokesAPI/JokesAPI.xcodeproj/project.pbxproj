@@ -13,6 +13,7 @@
 		5CFBC43B224BC88F0016DA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBC43A224BC88F0016DA86 /* Assets.xcassets */; };
 		5CFBC43E224BC88F0016DA86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBC43C224BC88F0016DA86 /* LaunchScreen.storyboard */; };
 		5CFBC446224BD3CD0016DA86 /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBC445224BD3CD0016DA86 /* Joke.swift */; };
+		5CFBC448224C1ACA0016DA86 /* Week2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBC447224C1ACA0016DA86 /* Week2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5CFBC43D224BC88F0016DA86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CFBC43F224BC88F0016DA86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CFBC445224BD3CD0016DA86 /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
+		5CFBC447224C1ACA0016DA86 /* Week2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Week2.json; path = "../../../Week 2 Test/Week2.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				5CFBC43C224BC88F0016DA86 /* LaunchScreen.storyboard */,
 				5CFBC43F224BC88F0016DA86 /* Info.plist */,
 				5CFBC445224BD3CD0016DA86 /* Joke.swift */,
+				5CFBC447224C1ACA0016DA86 /* Week2.json */,
 			);
 			path = JokesAPI;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CFBC448224C1ACA0016DA86 /* Week2.json in Resources */,
 				5CFBC43E224BC88F0016DA86 /* LaunchScreen.storyboard in Resources */,
 				5CFBC43B224BC88F0016DA86 /* Assets.xcassets in Resources */,
 				5CFBC439224BC88D0016DA86 /* Main.storyboard in Resources */,
