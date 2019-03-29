@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Joke: Codable {
+class Joke: Codable {
     let id: Int
     let category: ViewController.Category
     let type: String

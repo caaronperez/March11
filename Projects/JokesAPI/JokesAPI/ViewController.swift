@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    static var midnightModeOn: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: "frankenflag")
+        } set {
+            UserDefaults.standard.set(newValue, forKey: "frankenflag")
+        }
+    }
     // MARK: - IBOutlets
     
     @IBOutlet var searchBar: UISearchBar!
@@ -54,13 +61,15 @@ class ViewController: UIViewController {
         
         setupViewController()
     }
-    
+
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         guard motion == .motionShake else { return }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let collectionViewController = storyboard.instantiateViewController(withIdentifier: "JokesCollectionViewController") as! JokesCollectionViewController
-        collectionViewController.jokes = jokes
-        present(collectionViewController, animated: true, completion: nil)
+        ViewController.midnightModeOn = !ViewController.midnightModeOn
+        self.tableView.reloadData()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let collectionViewController = storyboard.instantiateViewController(withIdentifier: "JokesCollectionViewController") as! JokesCollectionViewController
+//        collectionViewController.jokes = jokes
+//        present(collectionViewController, animated: true, completion: nil)
     }
 
     // MARK: - Setup Functions
