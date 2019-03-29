@@ -27,12 +27,21 @@ class ViewController: UIViewController {
     
     var jokes: [Joke] = []
     var jokesToShow = [Joke]()
-    var category = Category.anything
+    var category = Joke.JokeCategory.anything
     
     // MARK: - IBActions
     
     @IBAction func getAnotherButtonClicked(_ sender: Any) {
-        getAJoke(category: category)
+        JokeControler().getAJoke(category: category) { [unowned self] (joke) in
+            if let joke = joke {
+                self.jokes.append(joke)
+                self.jokesToShow.append(joke)
+                JokeControler().saveToDefaults(jokes: self.jokes)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
@@ -76,7 +85,10 @@ class ViewController: UIViewController {
     
     func setupViewController() {
         searchBar.delegate = self
-        getAJoke(category: category)
+        let jokesFromDefaults = JokeControler().getJokesFromDefaults()
+        jokes = jokesFromDefaults
+        jokesToShow = jokesFromDefaults
+        tableView.reloadData()
         tableView.register(UINib(nibName: "JokeTableViewCell", bundle: nil), forCellReuseIdentifier: "qwerty")
         //Setting initial selected segment to Any segment
         categorySelector.selectedSegmentIndex = 3
@@ -84,31 +96,9 @@ class ViewController: UIViewController {
     
     // MARK: - Helper Functions
     
-    func getAJoke(category: Category) {
-        let urlString = "https://sv443.net/jokeapi/category/\(category.rawValue)"
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { [unowned self] (data, response, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            if let data = data, let joke = try? JSONDecoder().decode(Joke.self, from: data) {
-                print(joke)
-                self.jokes.append(joke)
-                self.jokesToShow.append(joke)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }.resume()
-    }
     
-    enum Category: String, RawRepresentable, Codable {
-        case anything = "Any"
-        case programming = "Programming"
-        case dark = "Dark"
-        case misc = "Miscellaneous"
-        
-    }
+    
+    
     
     enum Segment: Int {
         case misc
