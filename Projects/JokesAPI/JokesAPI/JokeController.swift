@@ -16,19 +16,19 @@ class JokeControler {
     // CRUD functions go here
     
     func getAJoke(category: Joke.JokeCategory, completion: @escaping (Joke?) -> Void) {
-        let urlString = "https://sv443.net/jokeapi/category/\(category.rawValue)"
-        guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let urlString = "\(baseURL)\(category.rawValue)"
+        guard let url = URL(string: urlString) else { completion(nil); return }
+        
+        NetworkController.performRequest(for: url, httpMethod: .Get) { (data, error) in
             if let error = error {
-                print(error.localizedDescription)
+                print("/n/n/n/n/nThere was an error getting the Joke: \(error.localizedDescription)/n/n/n/n/n")
             }
-            if let data = data, let joke = try? JSONDecoder().decode(Joke.self, from: data) {
-                print(joke)
-                completion(joke)
-            } else {
-                completion(nil)
+            if let data = data {
+                completion(try? JSONDecoder().decode(Joke.self, from: data))
+                return
             }
-        }.resume()
+            completion(nil)
+        }
     }
     
     func getJokesFromDefaults() -> [Joke] {

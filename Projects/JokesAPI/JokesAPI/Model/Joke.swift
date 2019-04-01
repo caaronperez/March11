@@ -23,6 +23,8 @@ struct Joke: Codable {
         case dark = "Dark"
         case misc = "Miscellaneous"
     }
+    
+    let jokeIDKey = "id"
 }
 
 extension Joke {
