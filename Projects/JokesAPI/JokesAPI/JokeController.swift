@@ -12,7 +12,6 @@ import CoreData
 class JokeControler {
     
     let baseURL = "https://sv443.net/jokeapi/category/"
-    let controller = CoreDataController()
     
     // CRUD functions go here
     
@@ -85,20 +84,5 @@ class JokeControler {
         cdJoke.setValue(joke.delivery, forKey: "delivery")
         cdJoke.setValue(joke.type, forKey: "type")
         try? context.save()
-    }
-    
-    func saveToCoreData(joke: Joke) {
-        let context = self.controller.context
-        guard let entity = NSEntityDescription.entity(forEntityName: "RenfrewJoke", in: context) else { return }
-        
-        let renfrewJoke = NSManagedObject(entity: entity, insertInto: context)
-        renfrewJoke.setValue(joke.id, forKey: "id")
-        renfrewJoke.setValue(joke.category.rawValue, forKey: "category")
-        renfrewJoke.setValue(joke.joke, forKey: "joke")
-        renfrewJoke.setValue(joke.setup, forKey: "setup")
-        renfrewJoke.setValue(joke.delivery, forKey: "delivery")
-        renfrewJoke.setValue(joke.type, forKey: "type")
-        
-        self.controller.save()
     }
 }
