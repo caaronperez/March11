@@ -12,12 +12,13 @@
 		0417184A224D673D00F99188 /* JokesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04171849224D673D00F99188 /* JokesCollectionViewController.swift */; };
 		0417184D224D698B00F99188 /* JokeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417184B224D698B00F99188 /* JokeCollectionViewCell.swift */; };
 		0417184E224D698B00F99188 /* JokeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0417184C224D698B00F99188 /* JokeCollectionViewCell.xib */; };
-		0417189D2252550D00F99188 /* RenfrewJokesAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0417189B2252550D00F99188 /* RenfrewJokesAPI.xcdatamodeld */; };
-		0417189F2252579300F99188 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417189E2252579300F99188 /* CoreDataController.swift */; };
+		0417189D2252550D00F99188 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		5CC43F0E224EBA7400A58DBC /* JokeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43F0D224EBA7400A58DBC /* JokeController.swift */; };
 		5CC43F112252457D00A58DBC /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43F102252457D00A58DBC /* NetworkController.swift */; };
 		5CC43F142252544000A58DBC /* JokesAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43F122252544000A58DBC /* JokesAPI.xcdatamodeld */; };
 		5CC43F162252570800A58DBC /* CoreData+JokesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43F152252570800A58DBC /* CoreData+JokesAPI.swift */; };
+		5CC43F392253A52F00A58DBC /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43F382253A52F00A58DBC /* KeychainPasswordItem.swift */; };
+		5CC43F3B2253A9A900A58DBC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43F3A2253A9A900A58DBC /* LoginViewController.swift */; };
 		5CFBC434224BC88D0016DA86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBC433224BC88D0016DA86 /* AppDelegate.swift */; };
 		5CFBC436224BC88D0016DA86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBC435224BC88D0016DA86 /* ViewController.swift */; };
 		5CFBC439224BC88D0016DA86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CFBC437224BC88D0016DA86 /* Main.storyboard */; };
@@ -32,12 +33,13 @@
 		04171849224D673D00F99188 /* JokesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesCollectionViewController.swift; sourceTree = "<group>"; };
 		0417184B224D698B00F99188 /* JokeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCollectionViewCell.swift; sourceTree = "<group>"; };
 		0417184C224D698B00F99188 /* JokeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JokeCollectionViewCell.xib; sourceTree = "<group>"; };
-		0417189C2252550D00F99188 /* RenfrewJokesAPI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RenfrewJokesAPI.xcdatamodel; sourceTree = "<group>"; };
 		0417189E2252579300F99188 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		5CC43F0D224EBA7400A58DBC /* JokeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeController.swift; sourceTree = "<group>"; };
 		5CC43F102252457D00A58DBC /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		5CC43F132252544000A58DBC /* CDJoke.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDJoke.xcdatamodel; sourceTree = "<group>"; };
 		5CC43F152252570800A58DBC /* CoreData+JokesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+JokesAPI.swift"; sourceTree = "<group>"; };
+		5CC43F382253A52F00A58DBC /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		5CC43F3A2253A9A900A58DBC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5CFBC430224BC88D0016DA86 /* JokesAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JokesAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFBC433224BC88D0016DA86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CFBC435224BC88D0016DA86 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				04171849224D673D00F99188 /* JokesCollectionViewController.swift */,
 				0417184B224D698B00F99188 /* JokeCollectionViewCell.swift */,
 				0417184C224D698B00F99188 /* JokeCollectionViewCell.xib */,
+				5CC43F3A2253A9A900A58DBC /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -96,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				5CC43F102252457D00A58DBC /* NetworkController.swift */,
+				5CC43F382253A52F00A58DBC /* KeychainPasswordItem.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -208,13 +212,15 @@
 				0417184A224D673D00F99188 /* JokesCollectionViewController.swift in Sources */,
 				5CC43F142252544000A58DBC /* JokesAPI.xcdatamodeld in Sources */,
 				0417184D224D698B00F99188 /* JokeCollectionViewCell.swift in Sources */,
-				0417189D2252550D00F99188 /* RenfrewJokesAPI.xcdatamodeld in Sources */,
+				0417189D2252550D00F99188 /* (null) in Sources */,
 				5CFBC436224BC88D0016DA86 /* ViewController.swift in Sources */,
 				5CFBC434224BC88D0016DA86 /* AppDelegate.swift in Sources */,
 				5CC43F162252570800A58DBC /* CoreData+JokesAPI.swift in Sources */,
 				04171847224D4AC600F99188 /* JokeTableViewCell.swift in Sources */,
 				5CC43F0E224EBA7400A58DBC /* JokeController.swift in Sources */,
 				5CFBC446224BD3CD0016DA86 /* Joke.swift in Sources */,
+				5CC43F3B2253A9A900A58DBC /* LoginViewController.swift in Sources */,
+				5CC43F392253A52F00A58DBC /* KeychainPasswordItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
