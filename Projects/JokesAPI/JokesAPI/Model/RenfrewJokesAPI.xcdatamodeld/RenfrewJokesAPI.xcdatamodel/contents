@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Joke" representedClassName="Joke" syncable="YES" codeGenerationType="class">
+        <attribute name="category" attributeType="String" syncable="YES"/>
+        <attribute name="delivery" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="joke" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="setup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="User" inverseName="jokes" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="jokes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Joke" inverseName="user" inverseEntity="Joke" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Joke" positionX="-54" positionY="-9" width="128" height="150"/>
+        <element name="User" positionX="-36" positionY="54" width="128" height="75"/>
+    </elements>
+</model>

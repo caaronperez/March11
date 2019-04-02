@@ -12,6 +12,8 @@
 		0417184A224D673D00F99188 /* JokesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04171849224D673D00F99188 /* JokesCollectionViewController.swift */; };
 		0417184D224D698B00F99188 /* JokeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417184B224D698B00F99188 /* JokeCollectionViewCell.swift */; };
 		0417184E224D698B00F99188 /* JokeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0417184C224D698B00F99188 /* JokeCollectionViewCell.xib */; };
+		0417189D2252550D00F99188 /* RenfrewJokesAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0417189B2252550D00F99188 /* RenfrewJokesAPI.xcdatamodeld */; };
+		0417189F2252579300F99188 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417189E2252579300F99188 /* CoreDataController.swift */; };
 		5CC43F0E224EBA7400A58DBC /* JokeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43F0D224EBA7400A58DBC /* JokeController.swift */; };
 		5CC43F112252457D00A58DBC /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43F102252457D00A58DBC /* NetworkController.swift */; };
 		5CC43F142252544000A58DBC /* JokesAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43F122252544000A58DBC /* JokesAPI.xcdatamodeld */; };
@@ -30,6 +32,8 @@
 		04171849224D673D00F99188 /* JokesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokesCollectionViewController.swift; sourceTree = "<group>"; };
 		0417184B224D698B00F99188 /* JokeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCollectionViewCell.swift; sourceTree = "<group>"; };
 		0417184C224D698B00F99188 /* JokeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JokeCollectionViewCell.xib; sourceTree = "<group>"; };
+		0417189C2252550D00F99188 /* RenfrewJokesAPI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RenfrewJokesAPI.xcdatamodel; sourceTree = "<group>"; };
+		0417189E2252579300F99188 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		5CC43F0D224EBA7400A58DBC /* JokeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeController.swift; sourceTree = "<group>"; };
 		5CC43F102252457D00A58DBC /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		5CC43F132252544000A58DBC /* CDJoke.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CDJoke.xcdatamodel; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				5CC43F0D224EBA7400A58DBC /* JokeController.swift */,
+				0417189E2252579300F99188 /* CoreDataController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				0417184A224D673D00F99188 /* JokesCollectionViewController.swift in Sources */,
 				5CC43F142252544000A58DBC /* JokesAPI.xcdatamodeld in Sources */,
 				0417184D224D698B00F99188 /* JokeCollectionViewCell.swift in Sources */,
+				0417189D2252550D00F99188 /* RenfrewJokesAPI.xcdatamodeld in Sources */,
 				5CFBC436224BC88D0016DA86 /* ViewController.swift in Sources */,
 				5CFBC434224BC88D0016DA86 /* AppDelegate.swift in Sources */,
 				5CC43F162252570800A58DBC /* CoreData+JokesAPI.swift in Sources */,

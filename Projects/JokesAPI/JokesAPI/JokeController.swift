@@ -6,8 +6,8 @@
 //  Copyright © 2019 Jeremiah Hawks. All rights reserved.
 //
 
+import Foundation
 import CoreData
-
 
 class JokeControler {
     
@@ -85,8 +85,4 @@ class JokeControler {
         cdJoke.setValue(joke.type, forKey: "type")
         try? context.save()
     }
-    
-    // Delete function?
-    
-    
 }
