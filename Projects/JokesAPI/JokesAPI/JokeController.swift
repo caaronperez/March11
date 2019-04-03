@@ -35,17 +35,11 @@ class JokeControler {
     
     // MARK: - Read
     
-    func getJokesFromDefaults() -> [Joke] {
-        guard let jokes = UserDefaults.standard.value(forKey: "AllDemJokes") as? [[String: Any]] else { return [] }
-        fetchJokesFromCoreData()
-        return jokes.compactMap( { Joke(dictionary: $0) } )
-    }
-    
-    func fetchJokesFromCoreData() {
+    func fetchJokesFromCoreData() -> [Joke] {
         let context = CoreDataStack.shared.context
         
         //2
-        let fetchRequest = NSFetchRequest<CDJoke>(entityName: "CDJoke")
+        let fetchRequest: NSFetchRequest<Joke> = Joke.fetchRequest()
         
         //3
         do {
@@ -58,8 +52,10 @@ class JokeControler {
                 print(joke.setup)
                 print(joke.delivery)
             }
+            return jokes
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
+            return []
         }
     }
     
@@ -67,22 +63,8 @@ class JokeControler {
     
     // MARK: - Update
     
-    func saveToDefaults(jokes: [Joke]) {
-        let dictionaryArray = jokes.compactMap( { $0.dictionaryRepresentation } )
-        UserDefaults.standard.set(dictionaryArray, forKey: "AllDemJokes")
-        _ = jokes.compactMap( { saveToCoreData(joke: $0) } )
-    }
-    
-    func saveToCoreData(joke: Joke) {
+    func saveToCoreData() {
         let context = CoreDataStack.shared.context
-        guard let entity = NSEntityDescription.entity(forEntityName: "CDJoke", in: context) else { return }
-        let cdJoke = NSManagedObject(entity: entity, insertInto: context)
-        cdJoke.setValue(joke.id, forKey: "id")
-        cdJoke.setValue(joke.category.rawValue, forKey: "category")
-        cdJoke.setValue(joke.joke, forKey: "joke")
-        cdJoke.setValue(joke.setup, forKey: "setup")
-        cdJoke.setValue(joke.delivery, forKey: "delivery")
-        cdJoke.setValue(joke.type, forKey: "type")
         try? context.save()
     }
 }

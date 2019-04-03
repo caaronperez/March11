@@ -15,8 +15,12 @@ class JokeCollectionViewCell: UICollectionViewCell {
     func configure(with joke: Joke) {
         var superJokeString = ""
         superJokeString += String(joke.id) + "\n"
-        superJokeString += joke.category.rawValue + "\n"
-        superJokeString += joke.type + "\n"
+        if let category = joke.category {
+            superJokeString += category + "\n"
+        }
+        if let type = joke.type {
+            superJokeString += type + "\n"
+        }
         if let unwrappedJoke = joke.joke {
             superJokeString += unwrappedJoke + "\n"
         }

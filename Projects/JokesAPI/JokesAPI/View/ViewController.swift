@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             if let joke = joke {
                 self.jokes.append(joke)
                 self.jokesToShow.append(joke)
-                JokeControler().saveToDefaults(jokes: self.jokes)
+                JokeControler().saveToCoreData()
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -49,13 +49,13 @@ class ViewController: UIViewController {
         switch segment {
         case .misc:
             category = .misc
-            jokesToShow = jokes.filter({ $0.category == .misc })
+            jokesToShow = jokes.filter({ $0.category == Joke.JokeCategory.misc.rawValue })
         case .programming:
             category = .programming
-            jokesToShow = jokes.filter({ $0.category == .programming })
+            jokesToShow = jokes.filter({ $0.category == Joke.JokeCategory.programming.rawValue })
         case .dark:
             category = .dark
-            jokesToShow = jokes.filter({ $0.category == .dark })
+            jokesToShow = jokes.filter({ $0.category == Joke.JokeCategory.dark.rawValue })
         case .anything:
             category = .anything
             jokesToShow = jokes
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
     
     func setupViewController() {
         searchBar.delegate = self
-        let jokesFromDefaults = JokeControler().getJokesFromDefaults()
+        let jokesFromDefaults = JokeControler().fetchJokesFromCoreData()
         jokes = jokesFromDefaults
         jokesToShow = jokesFromDefaults
         tableView.reloadData()
@@ -144,7 +144,7 @@ extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
         guard !searchText.isEmpty else {
-            jokesToShow = jokes.filter({ $0.category == category })
+            jokesToShow = jokes.filter({ $0.category == category.rawValue })
             tableView.reloadData()
             return
         }
@@ -152,7 +152,7 @@ extension ViewController: UISearchBarDelegate {
             return (joke.joke?.localizedCaseInsensitiveContains(searchText) == true
                 || joke.setup?.localizedCaseInsensitiveContains(searchText) == true
                 || joke.delivery?.localizedCaseInsensitiveContains(searchText) == true)
-                && joke.category == category
+                && joke.category == category.rawValue
         }
         jokesToShow = filteredJokes
         tableView.reloadData()
